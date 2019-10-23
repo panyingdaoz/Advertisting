@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/CustomerKeyboard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#f7f7f7"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/delete_dialog"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="10dp"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:padding="15dp"-->
+    <!--android:src="@mipmap/delete_black"-->
+    <!--tools:ignore="ContentDescription" />-->
+
+    <RelativeLayout
+        android:id="@+id/editTextLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerInParent="true"-->
+        <TextView
+            android:id="@+id/exit_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/exit_password"
+            android:textColor="#444a59"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/line_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <View
+            android:id="@+id/Line"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#d1d2d6" />
+    </RelativeLayout>
+
+
+    <!--android:layout_below="@+id/editTextLayout"-->
+    <com.kingbird.advertisting.activity.PasswordEditText
+        android:id="@+id/password_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginRight="45dp"
+        android:background="@null"
+        android:padding="10dp"
+        app:bgCorner="3dp" />
+    <!--android:layout_centerInParent="true"-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.kingbird.advertisting.activity.CustomerKeyboard
+            android:id="@+id/custom_key_board"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp" />
+    </RelativeLayout>
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_below="@id/password_edit_text"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--</RelativeLayout>-->
+
+
+</LinearLayout>

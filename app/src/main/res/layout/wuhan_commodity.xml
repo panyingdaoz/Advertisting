@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:gravity="center_vertical"
+    android:visibility="visible">
+    <!--android:layout_above="@id/MarqueeView1"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <ImageView
+        android:id="@+id/ImageOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_product_1"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ImageTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/ImageOne"
+        android:background="@drawable/list_product_2"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ImageThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/ImageTwo"
+        android:background="@drawable/list_product_3"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ImageFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/ImageThree"
+        android:background="@drawable/list_product_4"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ImageFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/ImageFour"
+        android:background="@drawable/list_product_5"
+        tools:ignore="ContentDescription" />
+
+</RelativeLayout>

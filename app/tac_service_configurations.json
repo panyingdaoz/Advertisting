@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "warning": "请不要修改这个文件中的内容",
+    "project": {
+        "projectId": 104039
+    },
+    "application": {
+        "appId": 103587,
+        "platform": "",
+        "packageId": "com.kingbird.advertisting"
+    },
+    "services": {
+        "analytics": {
+            "appKey": "Aqcloud103587",
+            "enable": true,
+            "appId": "103587",
+            "strategy": 0,
+            "minBatchReportCount": "10",
+            "sendPeriodMillis": 3600000,
+            "smartReporting": true,
+            "sessionTimeoutMillis": 30000,
+            "autoTrackPageEvents": true,
+            "multiProcess": true
+        },
+        "messaging": {
+            "appId": "2100307240",
+            "appKey": "A74D9DYF9A8E",
+            "huaweiAppId": "",
+            "xiaomiAppId": "",
+            "xiaomiAppKey": "",
+            "meizuAppId": "",
+            "meizuAppKey": "",
+            "autoStart": true
+        },
+        "crash": {
+            "appId": "f1dd4dcd9f",
+            "enable": true,
+            "consolelogEnable": true,
+            "reportDelay": 1000,
+            "nativeCrash": true,
+            "ANRCrash": true
+        },
+        "payment": {
+            "offerId": ""
+        },
+        "storage": {
+            "bucket": "tac-p-st-1252545421",
+            "region": "ap-guangzhou"
+        }
+    }
+}

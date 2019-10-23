@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/hotelLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/hotelImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/hotellmage"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/hotelText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorText"
+            android:gravity="center"
+            android:text="@string/hotel_text"
+            android:textColor="@color/colorTextHotel"
+            android:textSize="30sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/search_edit_frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.pili.pldroid.player.widget.PLVideoTextureView
+            android:id="@+id/VideoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/CoverView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/ImagePlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/background"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <com.shizhefei.view.largeimage.LargeImageView
+            android:id="@+id/ImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/GifImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+        <!--android:scaleType="fitXY"-->
+        <!--android:scaleType="fitCenter"-->
+        <ImageView
+            android:id="@+id/AppLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/TimeRedPacket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="end"
+            android:src="@mipmap/app_logo"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end">
+
+            <TextView
+                android:id="@+id/deviceId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@color/background"
+                android:gravity="center"
+                android:textSize="50sp"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/ZXing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/deviceId"
+                android:layout_gravity="top|end"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="end"
+                android:src="@mipmap/app_logo"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/redPacket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/ZXing"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="end"
+                android:src="@mipmap/app_logo"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_toEndOf="@+id/mMarqueeView"-->
+            <!--android:onClick="onForwardToAccessibility"-->
+            <!--android:text="开启智能安装服务" />-->
+            <ImageView
+                android:id="@+id/Tissue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/mMarqueeView"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="10dp"
+                android:gravity="end"
+                android:src="@mipmap/app_logo"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+            <com.kingbird.advertisting.activity.MarqueeView
+                android:id="@+id/mMarqueeView"
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/background"
+                android:paddingTop="20dp"
+                android:visibility="gone"
+                app:direction="left"
+                app:isRepeat="true"
+                app:speed="0"
+                app:startPoint="end"
+                app:textSize="40sp"
+                app:textcolor="@color/colorText" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+
+</android.support.ConstraintLayout>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kingbird.advertisting">
+    <!--coreApp="true"-->
+    <!--android:sharedUserId="android.uid.system"-->
+    <!--android:sharedUserId="android.uid.packageinstaller|android.uid.system"-->
+
+    <!-- 网络权限 -->
+    <application
+        android:name=".application.MyApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/app_logo_round"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- android:theme="@style/AppTheme" -->
+        <activity android:name=".base.BaseActivity" />
+        <!--android:configChanges="orientation|keyboardHidden|layoutDirection|keyboard|screenSize"-->
+        <activity
+            android:name=".activity.VideoViewActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="unspecified"
+            android:theme="@style/AppThemeFullscreen"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.HomePageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppThemeFullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="ebwQGyVwTwfnSHmmvsznl8rhSijTHPZn" />
+
+        <!-- <activity -->
+        <!-- android:name=".activity.MainActivity" -->
+        <!-- android:configChanges="orientation|keyboardHidden|layoutDirection|keyboard|screenSize" -->
+        <!-- android:theme="@style/AppThemeFullscreen" /> -->
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.kingbird.advertisting.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- 元数据 -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <receiver
+            android:name=".receiver.BootBroadcastReceiver"
+            android:enabled="true">
+            <intent-filter>
+
+                <!-- 注册开机广播 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <!-- //武汉自动售货机广告 -->
+                <!-- <action android:name="com.android.action.SHOW_BUSINESS_FUNCTION"/> -->
+                <!-- 启动软件广播 -->
+                <action android:name="android.kingbird.action.OPEN_ADVERTISTING" />
+            </intent-filter>
+            <!-- 2018-10-26 添加软件升级后自动删除安装包广播 -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.yf_gpio0_up" />
+                <action android:name="android.intent.action.yf_gpio0_down" />
+                <action android:name="android.intent.action.yf_gpio1_up" />
+                <action android:name="android.intent.action.yf_gpio1_down" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".service.MonitorService" />
+        <service
+            android:name=".service.StartAppService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="SmartCamService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <service
+            android:name=".service.MyAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="即投视播智能安装"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+    </application>
+    <!-- SD卡读写操作 -->
+    <permission
+        android:name="app.custom.permission"
+        android:protectionLevel="signature"
+        tools:ignore="ManifestOrder" />
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 屏幕锁权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 开机启动权限 -->
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <!-- 百度地图相关 -->
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- &lt;!&ndash;装载和卸载文件系统&ndash;&gt; -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 允许应用程序访问有关的网络信息 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <!-- 允许应用程序访问WIFI网卡的网络信息 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 读取读取电话状态权限 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 访问定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 静默安装 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 讯飞语音权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--前后台的切换-->
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <!--写入权限-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--读取log-->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!--网络状态修改-->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <!--写入设置-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <uses-permission android:name="app.custom.permission" />
+
+</manifest>

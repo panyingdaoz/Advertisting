@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="protocol" />
+    <version value="28" />
+    <list>
+        <mapping class="com.kingbird.advertisting.litepal.Parameter" />
+        <mapping class="com.kingbird.advertisting.litepal.PlayList" />
+        <mapping class="com.kingbird.advertisting.litepal.Charge" />
+    </list>
+</litepal>

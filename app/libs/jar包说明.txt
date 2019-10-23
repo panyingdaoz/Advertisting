@@ -1,0 +1,10 @@
+BaiduLBS_Android.jar  百度定位
+commons-lang3-3.7.jar 用于线程池
+pldroid-player-2.1.8.jar 视频播放框架
+commons-net-3.6.jar  FTP下载（支持中文下载的）
+Gpio.jar             io口控制纸巾、充电（亿晟、音诺恒方案）
+SerialPort.jar     串口控制纸巾、充电（主推方案，音诺恒）
+Sunflower.jar 、Msc.jar 讯飞语音
+classes.jar   一米云开关机 // 2019-10-22 删除
+poweronoff.jar   RK3288\RK3128 亿晟主板开关机
+gson-2.8.5.jar  gson解析包
